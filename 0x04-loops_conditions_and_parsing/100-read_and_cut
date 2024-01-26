@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This code displays the contents of the file '/etc/passwd'.
+#    It only displays theusername, user id, and user home directory psth.
+
+while read -r passwd; do
+	echo "$passwd" | cut -d ':' -f1,3,6
+done < "/etc/passwd"

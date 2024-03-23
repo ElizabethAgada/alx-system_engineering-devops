@@ -13,3 +13,4 @@ file_line { 'Declare identify file':
   path   => '/etc/ssh/ssh_config',
   line   => '	  IdentifyFile ~/.ssh/school',
   replace => true,
+}

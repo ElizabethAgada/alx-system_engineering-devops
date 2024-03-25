@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Dis connects to sever 52.204.144.35 with key in ~/.ssh/school
-
-ssh -i ~/.ssh/school ubuntu@52.204.144.35
+# Dis connects to sever 52.91.144.100 with key in ~/.ssh/school
+# key ~/.ssh/school with the user ubuntu
+ssh ubuntu@52.91.144.100 -i ~/.ssh/school

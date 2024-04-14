@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Dis connects to sever 107.23.93.140 with key in ~/.ssh/school
 # key ~/.ssh/school with the user ubuntu
-ssh ubuntu@107.23.93.140 -i ~/.ssh/school
+ssh ubuntu@34.227.89.127 -i ~/.ssh/school

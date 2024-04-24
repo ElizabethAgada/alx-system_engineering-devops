@@ -1,23 +1,31 @@
 #!/usr/bin/env bash
-# Installs and setup haproxy
+# Script to install and configure HAProxy on lb-01 server
+# Configures HAProxy to distribute traffic to web-01 and web-02 servers using roundrobin algorithm
+# Ensures HAProxy can be managed via an init script
 
-apt-get install -y software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-1.8
-apt-get -y update
-apt-get install -y haproxy=1.8.\*
+# Update package list
+sudo apt-get -y update
 
-echo "ENABLED=1" > /etc/default/haproxy
+# Install HAProxy
+sudo apt-get -y install haproxy
 
-# Listen to web1 and web2 servers
-echo "
-   listen load_balancer
-   bind *:80
-   mode http
-   balance roundrobin
-   option httpclose
-   option forwardfor
-   server 337734-web-01 100.25.212.93:80 check
-   server 337734-web-02 18.206.206.112:80 check
-" >> /etc/haproxy/haproxy.cfg
+# Configure HAProxy
+server_config="
+frontend lizzyegbo.tech-frontend
+    bind *:80
+    mode http
+    default_backend lizzyegbo.tech-backend
 
-service haproxy start
+backend lizzyegbo.tech-backend
+    balance roundrobin
+    server 176189-web-01 100.25.212.93:80 check
+    server 176189-web-02 18.206.206.112:80 check
+"
+
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# Enable HAProxy to start with system boot
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# Restart HAProxy service
+sudo service haproxy restart

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""DIS IS D Function to query Reddit API"""
+"""Function to query Reddit API"""
 
 
 import requests
 
 
 def top_ten(subreddit):
-    """DIS IS TO Returns ls of titles of the first ten hot posts"""
+    """Returns ls of titles of the first ten hot posts"""
     link = 'https://www.reddit.com/r/{}/hot.json'
     usr = {'User-Agent': 'Linux David'}
     heads = []

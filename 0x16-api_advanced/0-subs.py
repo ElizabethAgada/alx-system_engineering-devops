@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Function to query Reddit API"""
+"""DIS Function to query Reddit API"""
 
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Gets number of subscribers on a subreddit"""
+    """DIS Gets number of subscribers on a subreddit"""
     link = 'https://www.reddit.com/r/{}/about.json'
     usr = {'User-Agent': 'Linux David'}
 

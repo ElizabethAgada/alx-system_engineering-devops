@@ -34,7 +34,7 @@ frontend http_front
 backend http_back
         balance roundrobin
         option http-server-close
-        server 471042-web-01 100.25.212.93:80 check
+        server 471042-web-01 100.25.212.93 check
         server 471042-web-02 18.206.206.112 check
 EOF
 
